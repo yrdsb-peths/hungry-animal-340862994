@@ -69,17 +69,19 @@ public class Elephant extends Actor
         }
     }
     
+    int speed = 1;
+    
     public void act()
     {
         // Add your action code here.
         if(Greenfoot.isKeyDown("left"))
         {
-            move(-2);
+            move(-2 - speed);
             facing = "left";
         }
         else if(Greenfoot.isKeyDown("right"))
         {
-            move(2);
+            move(2 + speed);
             facing = "right";
         }
         
@@ -101,6 +103,7 @@ public class Elephant extends Actor
             MyWorld world = (MyWorld) getWorld();
             world.createApple();
             world.increaseScore();
+            speed += 1;
             elephantSound.play();
         }
     }
